@@ -32,21 +32,21 @@ values."
      git
      markdown
      org
+     restclient
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      spell-checking
      syntax-checking
      ;; version-control
-     rust
      javascript
      html
      evil-cleverparens
      evil-commentary
      evil-snipe
-     unimpaired
      vim-empty-lines
      vinegar
+     eyebrowse
      spacemacs-layouts
      )
    ;; List of additional packages that will be installed without being
@@ -253,6 +253,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  ;; https://github.com/syl20bnr/spacemacs/issues/2705
+  (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   )
 
 (defun dotspacemacs/user-config ()
@@ -274,7 +276,7 @@ you should place your code here."
  '(package-archives
    (quote
     (("melpa" . "http://elpa.zilongshanren.com/melpa/")
-     ("org" . "http://elpa.zilongshanren.com/org/")
+     ("org" . "http://orgmode.org/elpa/")
      ("gnu" . "http://elpa.zilongshanren.com/gnu/")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
